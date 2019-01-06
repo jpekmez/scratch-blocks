@@ -96,6 +96,7 @@ Blockly.Blocks['control_forever'] = {
       ],
       "inputsInline": true,
       "previousStatement": null,
+      "nextStatement": null,
       "category": Blockly.Categories.control,
       "colour": Blockly.Colours.control.primary,
       "colourSecondary": Blockly.Colours.control.secondary,
@@ -202,6 +203,72 @@ Blockly.Blocks['control_wait'] = {
       "colour": Blockly.Colours.control.primary,
       "colourSecondary": Blockly.Colours.control.secondary,
       "colourTertiary": Blockly.Colours.control.tertiary
+    });
+  }
+};
+
+Blockly.Blocks['control_if'] = {
+  init: function() {
+    this.jsonInit({
+      "id": "control_if",
+      "message0": "%1 %2 %3",
+      "args0": [
+        {
+          "type": "field_image",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/else.svg",
+          "width": 40,
+          "height": 40,
+          "alt": "if path"
+        },
+        {
+          "type": "input_value",
+          "name": "CHOICE"
+        },
+        {
+          "type": "input_statement",
+          "name": "SUBSTACK"
+        }
+      ],
+      "inputsInline": true,
+      "previousStatement": null,
+      "nextStatement": null,
+      "category": Blockly.Categories.motion,
+      "colour": Blockly.Colours.motion.primary,
+      "colourSecondary": Blockly.Colours.motion.secondary,
+      "colourTertiary": Blockly.Colours.motion.tertiary
+    });
+  }
+};
+
+Blockly.Blocks['control_else'] = {
+  init: function() {
+    this.jsonInit({
+      "id": "control_else",
+      "message0": "%1 %2 %3",
+      "args0": [
+        {
+          "type": "field_image",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/else.svg",
+          "width": 40,
+          "height": 40,
+          "alt": "else"
+        },
+        {
+          "type": "input_statement",
+          "name": "SUBSTACK"
+        },
+        {
+          "type": "input_statement",
+          "name": "SUBSTACK"
+        }
+      ],
+      "inputsInline": true,
+      "previousStatement": null,
+      "nextStatement": null,
+      "category": Blockly.Categories.motion,
+      "colour": Blockly.Colours.motion.primary,
+      "colourSecondary": Blockly.Colours.motion.secondary,
+      "colourTertiary": Blockly.Colours.motion.tertiary
     });
   }
 };

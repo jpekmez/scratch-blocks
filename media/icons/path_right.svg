@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="256px" height="256px" viewBox="0 0 256 256" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>Artboard</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <text id="Si:" font-family="ComicSansMS, Comic Sans MS" font-size="120" font-weight="normal" letter-spacing="-4.631235" fill="#FFFFFF">
+            <tspan x="59.0991963" y="110">Si:</tspan>
+        </text>
+        <path id="Line" d="M165.666667,202.5 L13,202.5 C8.581722,202.5 5,198.918278 5,194.5 C5,190.081722 8.581722,186.5 13,186.5 L165.666667,186.5 L165.666667,157.51179 C165.666667,156.733904 165.847779,155.966702 166.19566,155.27094 C167.433247,152.795766 170.443034,151.792503 172.918208,153.03009 L246.895727,190.01885 C247.865433,190.503703 248.651723,191.289993 249.136576,192.259699 C250.374163,194.734873 249.370901,197.744661 246.895727,198.982248 L172.918208,235.971007 C172.222447,236.318888 171.455244,236.5 170.677359,236.5 C167.91003,236.5 165.666667,234.256637 165.666667,231.489308 L165.666667,202.5 Z" fill="#FFFFFF" fill-rule="nonzero"></path>
+    </g>
+</svg>

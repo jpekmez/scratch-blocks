@@ -65,7 +65,7 @@ Blockly.FieldIconMenu.fromJson = function(element) {
  * @type {number}
  * @const
  */
-Blockly.FieldIconMenu.DROPDOWN_WIDTH = 168;
+Blockly.FieldIconMenu.DROPDOWN_WIDTH = 240;
 
 /**
  * Save the primary colour of the source block while the menu is open, for reset.

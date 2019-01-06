@@ -636,6 +636,7 @@ Blockly.Field.prototype.setText = function(newText) {
     return;
   }
   this.text_ = newText;
+  this.updateTextNode_();
   this.forceRerender();
 };
 

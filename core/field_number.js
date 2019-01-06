@@ -79,7 +79,7 @@ Blockly.FieldNumber.fromJson = function(options) {
  * @type {number}
  * @const
  */
-Blockly.FieldNumber.DROPDOWN_WIDTH = 168;
+Blockly.FieldNumber.DROPDOWN_WIDTH = 240;
 
 /**
  * Buttons for the num-pad, in order from the top left.

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Albert Playground</title>
+
+    <script src="../blockly_compressed_horizontal.js"></script>
+    <script src="../msg/messages.js"></script>
+    <script src="../msg/scratch_msgs.js"></script>
+    <script src="../blocks_common/math.js"></script>
+    <script src="../blocks_common/matrix.js"></script>
+    <script src="../blocks_common/note.js"></script>
+    <script src="../blocks_common/text.js"></script>
+    <script src="../blocks_common/colour.js"></script>
+    <script src="../blocks_horizontal/control.js"></script>
+    <script src="../blocks_horizontal/event.js"></script>
+    <script src="../blocks_horizontal/motion.js"></script>
+    <script>
+      'use strict';
+      var workspace = null;
+      var maxBlocks = Infinity;
+      function start() {
+        var match = location.search.match(/maxBlocks=([^&]+)/);
+        maxBlocks = match ? match[1] : Infinity;
+        var toolbox = createToolbox();
+        workspace = Blockly.inject('blocklyDiv', {
+            media: '../media/',
+            scrollbars: true,
+            sounds: false,
+            trashcan: true,
+            toolbox: toolbox,
+            horizontalLayout: true,
+            grid: {
+                spacing: 16,
+                length: 1,
+                colour: '#2C344A',
+                snap: false
+            },
+            zoom: {
+            controls: false,
+            wheel: false,
+            startScale: 0.75,
+            maxScale: 0.75,
+            minScale: 0.75,
+            scaleSpeed: 1
+          }
+        });
+
+        if(maxBlocks == Infinity) {
+          document.getElementById('menu').style.display = 'none';
+        } else {
+          function onchange(event) {
+            document.getElementById('capacity').textContent = remainingCapacity();
+          }
+          workspace.addChangeListener(onchange);
+          onchange();
+        }
+      }
+
+      function createToolbox() {
+        var xml = "";
+        var toolboxMatch = location.search.match(/toolbox=([^&]+)/);
+        if(toolboxMatch ? toolboxMatch[1].indexOf("motion_movestep") > -1 : true) { 
+          xml += `<block type="motion_movestep" id="motion_movestep"></block>`;
+        }
+        if(toolboxMatch ? toolboxMatch[1].indexOf("motion_turnleft") > -1 : true) { 
+          xml += `<block type="motion_turnleft" id="motion_turnleft"></block>`;
+        }
+        if(toolboxMatch ? toolboxMatch[1].indexOf("motion_turnright") > -1 : true) { 
+          xml += `<block type="motion_turnright" id="motion_turnright"></block>`;
+        }
+        if(toolboxMatch ? toolboxMatch[1].indexOf("control_if") > -1 : true) { 
+          xml += `<block type="control_if"><value name="CHOICE"><shadow type="dropdown_motion_if_path"><field name="CHOICE">ahead</field></shadow></value></block>`;
+        }
+        if(toolboxMatch ? toolboxMatch[1].indexOf("control_else") > -1 : true) { 
+          xml += `<block type="control_else"></block>`;
+        }
+        if(toolboxMatch ? toolboxMatch[1].indexOf("control_repeat") > -1 : true) { 
+          xml += `<block type="control_repeat"><value name="TIMES"><shadow type="math_number"><field name="NUM">2</field></shadow></value></block>`;
+        }
+        if(toolboxMatch ? toolboxMatch[1].indexOf("control_forever") > -1 : true) { 
+          xml += `<block type="control_forever"></block>`;
+        }
+        if(toolboxMatch ? toolboxMatch[1].indexOf("control_stop") > -1 : true) { 
+          xml += `<block type="control_stop"></block>`;
+        }
+        xml = '<xml xmlns="http://www.w3.org/1999/xhtml">' + xml + '</xml>';
+        return Blockly.Xml.textToDom(xml);
+      }
+
+      function remainingCapacity() {
+        return maxBlocks - workspace.getAllBlocks().filter(function(item) {
+          return item.rendered == true && item.category_ != null;
+        }).length;
+      }
+
+      function toXml() {
+        if(remainingCapacity() >= 0) {
+          var xml = Blockly.Xml.workspaceToDom(workspace);
+          return Blockly.Xml.domToPrettyText(xml);
+        }
+      }
+
+      function fromXml(xml) {
+        Blockly.Xml.domToWorkspace(xml, workspace);
+      }
+
+    </script>
+
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        background: #F9F9F9;
+        color: #4A4A4A;
+      }
+
+      #blocklyDiv {
+        height: 100%;
+        width: 100%;
+      }
+
+      #menu {
+        margin: 5px;
+      }
+
+      body .blocklyNumPadButton {
+        width: 40px;
+        height: 40px;
+      }
+
+    </style>
+  </head>
+
+  <body onload="start()">
+    <div id="menu">
+      <span id="capacity"></span> bloc(s) restant(s).
+    </div>
+    <div id="blocklyDiv"></div>
+</html>
