@@ -29,7 +29,7 @@
             media: '../media/',
             scrollbars: true,
             sounds: false,
-            trashcan: true,
+            trashcan: false,
             toolbox: toolbox,
             horizontalLayout: true,
             grid: {
@@ -51,7 +51,7 @@
         if(maxBlocks == Infinity) {
           document.getElementById('menu').style.display = 'none';
         } else {
-          function onchange(event) {
+          var onchange = function(event) {
             document.getElementById('capacity').textContent = remainingCapacity();
           }
           workspace.addChangeListener(onchange);
@@ -97,10 +97,15 @@
       }
 
       function toXml() {
-        if(remainingCapacity() >= 0) {
-          var xml = Blockly.Xml.workspaceToDom(workspace);
-          return Blockly.Xml.domToPrettyText(xml);
+        try {
+          if(remainingCapacity() >= 0) {
+            var xml = Blockly.Xml.workspaceToDom(workspace);
+            return Blockly.Xml.domToPrettyText(xml);
+          }
+        } catch(e) {
+
         }
+        return "";
       }
 
       function fromXml(xml) {
@@ -123,7 +128,10 @@
       }
 
       #menu {
-        margin: 5px;
+        margin: 20px;
+        position: absolute;
+        bottom: 0;
+        right: 0;
       }
 
       body .blocklyNumPadButton {
@@ -135,8 +143,8 @@
   </head>
 
   <body onload="start()">
+    <div id="blocklyDiv"></div>
     <div id="menu">
       <span id="capacity"></span> bloc(s) restant(s).
     </div>
-    <div id="blocklyDiv"></div>
 </html>

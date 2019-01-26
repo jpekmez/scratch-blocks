@@ -713,10 +713,10 @@ Blockly.Css.CONTENT = [
     'font-weight: 500;',
   '}',
 
-  '.blocklyMainBackground {',
-    'stroke-width: 1;',
-    'stroke: #c6c6c6;',  /* Equates to #ddd due to border being off-pixel. */
-  '}',
+  // '.blocklyMainBackground {',
+  //   'stroke-width: 1;',
+  //   'stroke: #c6c6c6;',  /* Equates to #ddd due to border being off-pixel. */
+  // '}',
 
   '.blocklyMutatorBackground {',
     'fill: #fff;',

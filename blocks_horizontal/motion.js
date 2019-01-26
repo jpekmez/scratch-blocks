@@ -121,13 +121,13 @@ Blockly.Blocks['motion_turnleft'] = {
           .appendField(new Blockly.FieldIconMenu(
               [
                 {src: Blockly.mainWorkspace.options.pathToMedia + 'icons/path_ahead.svg',
-                  value: 'ahead', width: 48, height: 48, alt: 'ahead'},
+                  value: 'ahead', width: 40, height: 40, alt: 'ahead'},
                 {src: Blockly.mainWorkspace.options.pathToMedia + 'icons/path_behind.svg',
-                  value: 'behind', width: 48, height: 48, alt: 'behind'},
+                  value: 'behind', width: 40, height: 40, alt: 'behind'},
                 {src: Blockly.mainWorkspace.options.pathToMedia + 'icons/path_left.svg',
-                  value: 'left', width: 48, height: 48, alt: 'left'},
+                  value: 'left', width: 40, height: 40, alt: 'left'},
                   {src: Blockly.mainWorkspace.options.pathToMedia + 'icons/path_right.svg',
-                  value: 'right', width: 48, height: 48, alt: 'right'}
+                  value: 'right', width: 40, height: 40, alt: 'right'}
               ]), 'CHOICE');
       this.setOutput(true);
       this.setColour(Blockly.Colours.motion.primary,

@@ -65,7 +65,7 @@ Blockly.FieldIconMenu.fromJson = function(element) {
  * @type {number}
  * @const
  */
-Blockly.FieldIconMenu.DROPDOWN_WIDTH = 240;
+// Blockly.FieldIconMenu.DROPDOWN_WIDTH = 240;
 
 /**
  * Save the primary colour of the source block while the menu is open, for reset.
@@ -245,7 +245,7 @@ Blockly.FieldIconMenu.prototype.showEditor_ = function() {
     button.appendChild(buttonImg);
     contentDiv.appendChild(button);
   }
-  contentDiv.style.width = Blockly.FieldIconMenu.DROPDOWN_WIDTH + 'px';
+  // contentDiv.style.width = Blockly.FieldIconMenu.DROPDOWN_WIDTH + 'px';
 
   Blockly.DropDownDiv.setColour(this.sourceBlock_.getColour(), this.sourceBlock_.getColourTertiary());
   Blockly.DropDownDiv.setCategory(this.sourceBlock_.parentBlock_.getCategory());
